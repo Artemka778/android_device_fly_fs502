@@ -1,2 +1,2 @@
-# android_device_zte_P731A20
-Device tree for ZTE Blade AF3
+# android_device_fly_fs502
+Device configuration for Fly FS502
