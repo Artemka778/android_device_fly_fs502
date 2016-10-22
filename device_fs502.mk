@@ -1,36 +1,36 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
+ 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
-
-$(call inherit-product-if-exists, vendor/zte/P731A20/P731A20-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/zte/P731A20/overlay
-
-LOCAL_PATH := device/zte/P731A20
-
+ 
+$(call inherit-product-if-exists, vendor/fly/fs502/fs502-vendor.mk)
+ 
+DEVICE_PACKAGE_OVERLAYS += device/fly/fs502/overlay
+ 
+LOCAL_PATH := device/fly/fs502
+ 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
-
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+ 
 # sprd telephony
 PRODUCT_PACKAGES += \
 	Dialer \
 	Mms
-
+ 
 # graphics modules
 PRODUCT_PACKAGES += \
 	libGLES_mali.so \
 	libboost.so \
 	mali.ko
-
+ 
 # default audio
 #PRODUCT_PACKAGES += \
 #	audio.a2dp.default \
 #	audio.usb.default \
 #	audio.r_submix.default \
 #	libaudio-resampler
-
+ 
 # sprd HAL modules
 #PRODUCT_PACKAGES += \
 #	audio.primary.sc8830 \
@@ -38,14 +38,14 @@ PRODUCT_PACKAGES += \
 #	camera.sc8830 \
 #	camera2.sc8830 \
 #	lights.sc8830
-
+ 
 # HWC
 PRODUCT_PACKAGES += \
 	gralloc.sc8830 \
 	hwcomposer.sc8830 \
 	sprd_gsp.sc8830 \
 	libion
-
+ 
 # Codecs
 #PRODUCT_PACKAGES += \
 #	libstagefrighthw \
@@ -77,7 +77,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.sc8830.usb.rc:root/init.sc8830.usb.rc \
     $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
     $(LOCAL_PATH)/rootdir/ueventd.sc8830.rc:root/ueventd.sc8830.rc \
-
+ 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/tiny_hw.xml:system/etc/tiny_hw.xml \
     $(LOCAL_PATH)/audio/codec_pga.xml:system/etc/codec_pga.xml \
@@ -108,9 +108,12 @@ PRODUCT_COPY_FILES += \
     
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_AAPT_CONFIG := hdpi
-
+ 
+PRODUCT_AAPT_CONFIG := xhdpi
+ 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_P731A20
-PRODUCT_DEVICE := P731A20
+PRODUCT_MODEL := FS502
+PRODUCT_BRAND := Fly
+PRODUCT_NAME := FlyFS502
+PRODUCT_DEVICE := Cirrus_1
+PRODUCT_MANUFACTURER := Fly
