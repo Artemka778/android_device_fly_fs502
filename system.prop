@@ -1,9 +1,9 @@
 
-ro.sf.lcd_density=240
+ro.sf.lcd_density=320
 ro.sf.lcd_width=54
 ro.sf.lcd_height=96
 ro.opengles.version=131072
-ro.product.hardware=SP7731GEA
+ro.product.hardware=SP7731GEA_HDR_V1.0.0
 
 debug.hwui.render_dirty_regions=false
 
@@ -11,19 +11,18 @@ debug.hwui.render_dirty_regions=false
 debug.bt.lowspeed=true
 
 persist.ttydev=ttyVUART0
-persist.storage.type=1
 
 # delay for ConnectivityChange broadcast (ms)
 conn.connectivity_change_delay = 0
 
-ro.product.partitionpath=/dev/block/platform/sprd-sdhci.3/by-name/
-
+ro.product.partitionpath=/dev/block/platform/sdio_emmc/by-name/
+#cg remove #911,*911 for mantis bug:0066810
 # Default ecclist
-ro.ril.ecclist=112,911,#911,*911
+ro.ril.ecclist=112,911
 
 persist.modem.w.enable=1
 persist.modem.w.nvp=w
-ro.modem.w.dev=/dev/cpw
+ro.modem.w.dev=/proc/cpw/
 ro.modem.w.tty=/dev/stty_w
 ro.modem.w.eth=seth_w
 ro.modem.w.snd=1
@@ -37,33 +36,27 @@ ro.modem.w.fixnv_size=0x40000
 ro.modem.w.runnv_size=0x60000
 persist.sys.engpc.disable=0
 
-persist.sys.custback=left
 
 ro.config.ksm.support=true
+
+#zram config
+ro.config.zram.support=true
+ro.board_ram_size=high
+
+# SPRD: add low cost low memory @{
+ro.config.low_ram=false
+# @}
 
 #if our product not support drm,set as false
 drm.service.enabled=true
 
 # hotspot development
-ro.hotspot.enabled=1
-
-# Low memory device
-ro.config.low_ram=true
-
-# RIL
-ro.com.android.dataroaming=false
-ro.msms.phone_count=2
-persist.msms.phone_count=2
-persist.msmslt=0
-ro.modem.w.count=2
-persist.sys.modem.diag=,gser
-sys.usb.gser.count=2
-ro.ril.hsxpa=1
-ro.ril.gprsclass=10
-persist.radio.multisim.config=dsds
+#ro.hotspot.enabled=1
 
 # this product does not support bt and softap coexist
 ro.btwifisoftap.coexist=false
-
 # SPRD: add support hwrotation
 ro.sf.hwrotation=0
+
+# this product does not support wifi and p2p coexist
+ro.wifip2p.coexist=false
