@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_P731A20.mk
+    $(LOCAL_DIR)/device_fs502.mk
